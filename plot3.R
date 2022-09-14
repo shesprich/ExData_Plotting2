@@ -13,7 +13,6 @@
 ## ---------------------------
 
 library(ggplot2)
-library(dplyr)
 library(RColorBrewer)
 
 # Load Data
@@ -34,7 +33,6 @@ for(years in c(1999, 2002, 2005, 2008)) {
 # Fix naming and classes
 row.names(spm25) <- 1:16
 names(spm25)[1] <- "Emissions"
-#spm25$year <- as.numeric(spm25$year)
 spm25$Emissions <- as.numeric(spm25$Emissions)
 spm25$year <- factor(spm25$year)
 
