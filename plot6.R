@@ -67,7 +67,7 @@ p1 <- p1 + geom_point(shape = 18, color = "blue", size = 4)
 p1 <- p1 +  facet_wrap( ~ region, scales = "free", nrow = 1)
 
 p2 <- ggplot(data = mrg, aes(x = year, y = change))
-p2 <- p2 + geom_bar(stat = "identity") 
+p2 <- p2 + geom_bar(stat = "identity", color = "blue", fill = "blue") 
 p2 <- p2 +  facet_wrap( ~ region, scales = "free", nrow = 1)
 
 grid.arrange(p1, p2, nrow = 2)
