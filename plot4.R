@@ -4,6 +4,8 @@
 ##
 ## Purpose of script: To create a plot examining change in coal combustion
 ## related pollution emissions across the US from the time period 1999-2008.
+## The plot will examine not only total change in emissions, but also primary
+## contributors of that change based on SCC Level Two designations.
 ##
 ## Author: Shane Hesprich
 ##
