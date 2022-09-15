@@ -72,12 +72,13 @@ scales <- "free"
 ## Plots
 p1 <- ggplot(data = mrg, aes(x = year, y = Emissions))
 p1 <- p1 + geom_point(shape = shape, color = color, size = size) 
-p1 <- p1 +  facet_wrap( ~ region, scales = scales, nrow = 1)
+p1 <- p1 + geom_line(group = "region")
+p1 <- p1 + facet_wrap( ~ region, scales = scales, nrow = 1)
 p1 <- p1 + ggtitle("Total Emissions")
 
 p2 <- ggplot(data = mrg, aes(x = year, y = change))
 p2 <- p2 + geom_bar(stat = "identity", color = color, fill = fill) 
-p2 <- p2 +  facet_wrap( ~ region, scales = scales, nrow = 1)
+p2 <- p2 + facet_wrap( ~ region, scales = scales, nrow = 1)
 p2 <- p2 + ggtitle("Percent Change since 1999")
 
 png(file = "plot6.png")

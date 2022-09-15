@@ -75,10 +75,12 @@ scales <- "free"
 ## Plots
 p1 <- ggplot(total, aes(x = year, y = Emissions))
 p1 <- p1 + geom_point(shape = shape, color = color, size = size)
+p1 <- p1 + geom_line()
 p1 <- p1 + ggtitle("Total Emissions")
 
 p2 <- ggplot(data = spm25, aes(x = year, y = Emissions))
 p2 <- p2 + geom_point(shape = shape, color = color, size = size)
+p2 <- p2 + geom_line(group = type)
 p2 <- p2 + facet_wrap(. ~ type, scales = scales, nrow = 2)
 p2 <- p2 + ggtitle("Emissions by EI Sector")
 

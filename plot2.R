@@ -30,6 +30,7 @@ ylab <- "Total Emissions (Tons)"
 col <- "blue"
 pch <- 18
 cex <- 2
+type <- "b"
 plot(years, yearSum, xlab = xlab, ylab = ylab, main = main, col = col, 
-     pch = pch, cex = cex)
+     pch = pch, cex = cex, type = type)
 dev.off()
