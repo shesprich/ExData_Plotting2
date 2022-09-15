@@ -23,9 +23,13 @@ yearSum <- with(baltimore, tapply(Emissions, year, sum, na.rm = TRUE))
 years <- unique(NEI$year) 
 
 # Gen plot
+png(file = "plot2.png")
 main <- "Total PM 2.5 Emissions by Year"
 xlab <- "Year"
 ylab <- "Total Emissions (Tons)"
 col <- "blue"
 pch <- 18
-plot(years, yearSum, xlab = xlab, ylab = ylab, main = main, col = col, pch = pch)
+cex <- 2
+plot(years, yearSum, xlab = xlab, ylab = ylab, main = main, col = col, 
+     pch = pch, cex = cex)
+dev.off()

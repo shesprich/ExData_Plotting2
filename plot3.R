@@ -36,10 +36,11 @@ names(spm25)[1] <- "Emissions"
 spm25$Emissions <- as.numeric(spm25$Emissions)
 spm25$year <- factor(spm25$year)
 
-
+png(file = "plot3.png")
 # Plot Data
 g <- ggplot(data = spm25, aes(x = type, y = Emissions, fill = year))
-g + geom_bar(stat = "identity", position = "dodge") +
+g <- g + geom_bar(stat = "identity", position = "dodge") +
 scale_fill_brewer(type = "qual", palette = "Set2")
-
+print(g)
+dev.off()
 

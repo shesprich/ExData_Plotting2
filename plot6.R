@@ -62,12 +62,24 @@ BAyearSum$change <- change
 mrg <- rbind(BAyearSum, LAyearSum)
 
 # Plot Data
+## Parameters
+color <- "blue"
+shape <- 18
+size <- 4
+fill <- color
+scales <- "free"
+
+## Plots
 p1 <- ggplot(data = mrg, aes(x = year, y = Emissions))
-p1 <- p1 + geom_point(shape = 18, color = "blue", size = 4) 
-p1 <- p1 +  facet_wrap( ~ region, scales = "free", nrow = 1)
+p1 <- p1 + geom_point(shape = shape, color = color, size = size) 
+p1 <- p1 +  facet_wrap( ~ region, scales = scales, nrow = 1)
+p1 <- p1 + ggtitle("Total Emissions")
 
 p2 <- ggplot(data = mrg, aes(x = year, y = change))
-p2 <- p2 + geom_bar(stat = "identity", color = "blue", fill = "blue") 
-p2 <- p2 +  facet_wrap( ~ region, scales = "free", nrow = 1)
+p2 <- p2 + geom_bar(stat = "identity", color = color, fill = fill) 
+p2 <- p2 +  facet_wrap( ~ region, scales = scales, nrow = 1)
+p2 <- p2 + ggtitle("Percent Change since 1999")
 
+png(file = "plot6.png")
 grid.arrange(p1, p2, nrow = 2)
+dev.off()

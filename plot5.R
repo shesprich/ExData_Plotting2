@@ -64,12 +64,24 @@ years <- years <- unique(NEI$year)
 total <- as.data.frame(cbind(yearSum, years))
 names(total) <- c("Emissions", "year")
 
+# Plot Data
+## Parameters
+color <- "blue"
+shape <- 18
+size <- 4
+fill <- color
+scales <- "free"
+
+## Plots
 p1 <- ggplot(total, aes(x = year, y = Emissions))
-p1 <- p1 + geom_point()
+p1 <- p1 + geom_point(shape = shape, color = color, size = size)
 p1 <- p1 + ggtitle("Total Emissions")
 
 p2 <- ggplot(data = spm25, aes(x = year, y = Emissions))
-p2 <- p2 + geom_point() + facet_wrap(. ~ type, scales = "free", nrow = 2)
+p2 <- p2 + geom_point(shape = shape, color = color, size = size)
+p2 <- p2 + facet_wrap(. ~ type, scales = scales, nrow = 2)
 p2 <- p2 + ggtitle("Emissions by EI Sector")
 
+png(file = "plot5.png")
 grid.arrange(p1, p2, nrow = 2)
+dev.off()
